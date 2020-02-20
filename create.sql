@@ -7,12 +7,14 @@ create table Bid(
     amount float NOT NULL,
     userID varchar(255) NOT NULL, 
     time time NOT NULL, 
+    primary key(itemID, userID, time),
     foreign key (itemID) references item(itemID),
     foreign key (userID) references user(userID)
 );
 create table Category(
     itemID int NOT NULL, 
     category varchar(255) NOT NULL,
+    primary key(itemID, category),
     foreign key (itemID) references bid(itemID)
 );
 create table Item(
